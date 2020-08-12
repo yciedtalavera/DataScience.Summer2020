@@ -1,0 +1,36 @@
+---
+title: "0700820PalmerPenguinDataViz"
+author: "Ycied Talavera"
+date: "7/8/2020"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+install.packages("tidyverse")
+library (tidyverse)
+
+install.packages("remotes")
+remotes::install_github("allisonhorst/palmerpenguins")
+library(palmerpenguins) 
+penguins
+
+glimpse(penguins)
+
+unique(penguins$species)
+unique(penguins$island)
+
+
+ggplot(data = penguins, 
+                        aes(x = flipper_length_mm, y = body_mass_g)) +
+        geom_point(aes(color = island, 
+                        shape = species),
+                      size = 3,
+                      alpha = 0.8) +
+        
+         scale_color_manual(values = c("darkorange","purple","cyan4")) + labs(title = "Penguin size, Palmer Station LTER",subtitle = "Flipper length and body mass for each island",x = "Flipper length (mm)", y = "Body mass (g)", color = "Penguin island", shape = "Penguin species") +  theme_minimal()
+         
+         
+         
+         
